@@ -16,6 +16,4 @@ exports.sourceNodes = async (
 	  // Use Gatsby's createNode helper to create a node from the node data
 	  createNode(nodeData)
   }
-  // plugin code goes here...
-  console.log("Testing my plugin", configOptions)
 }

@@ -9,10 +9,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
+import 'semantic-ui-css/semantic.min.css'
+
 import Header from "./header"
-import BudgetName from "./budgetName";
-import Accounts from "./accounts";
-import Categories from "./categories";
 
 import "./layout.css"
 
@@ -39,9 +38,7 @@ const Layout = ({ children }) => {
         }}
       >
         <main>
-        <BudgetName />
-        <Accounts />
-        <Categories />
+        {children}
         </main>
         <footer>
           © {new Date().getFullYear()}, Built with

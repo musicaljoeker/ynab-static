@@ -3,12 +3,13 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: `McCall Buget`,
+    title: `McCall Budget`,
     description: `Where is our money`,
     author: `@sloped`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
