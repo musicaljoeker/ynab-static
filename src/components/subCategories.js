@@ -2,7 +2,6 @@ import React from "react"
 import numeral from 'numeral';
 
 function SubCategories({group}) {
-  console.log(group);
   return  <div><h3>Categories</h3>
     <ul>
       {group.map( category => (
