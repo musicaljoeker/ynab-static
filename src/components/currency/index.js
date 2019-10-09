@@ -8,7 +8,7 @@ function Currency({cents}) {
   if(cents < 0) {
     className = `${className} negative`;
   }
-  return  <span className={className}>{accounting.formatMoney(cents/100)}</span>
+  return  <span className={className}>{accounting.formatMoney(cents/1000)}</span>
 }
 
 export default Currency
