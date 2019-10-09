@@ -8,7 +8,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
+import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
+import "react-netlify-identity-widget/styles.css" // delete if you want to bring your own CSS
 import 'semantic-ui-css/semantic.min.css'
 
 import Header from "./header"
@@ -25,10 +26,15 @@ const Layout = ({ children }) => {
       }
     }
   `)
-
+  const identity = useIdentityContext()
+  const [dialog, setDialog] = React.useState(false)
+  const isLoggedIn = identity && identity.isLoggedIn
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
+      <button className="btn" onClick={() => setDialog(true)}>
+        {isLoggedIn ? 'Log Out' : "LOG IN"}
+      </button>
       <div
         style={{
           margin: `0 auto`,
@@ -37,9 +43,10 @@ const Layout = ({ children }) => {
           paddingTop: 0,
         }}
       >
-        <main>
+        {isLoggedIn && <main>
         {children}
-        </main>
+        </main>}
+        <IdentityModal showDialog={dialog} onCloseDialog={() => setDialog(false)} />
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}

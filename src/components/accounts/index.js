@@ -1,11 +1,11 @@
 import React from "react"
-import { getAccounts } from "../../hooks/accounts"
+import { GetAccounts } from "../../hooks/accounts"
 import Currency from '../currency';
 import { Table } from 'semantic-ui-react'
 
-function Accounts() {
-  let accounts = getAccounts();
-  return <Table celled padded>
+function Accounts(props) {
+  let accounts = GetAccounts();
+  return <Table celled padded id={props.id}>
   	<Table.Header>
 		<Table.Row>
 	      <Table.HeaderCell singleLine>Account Name</Table.HeaderCell>
