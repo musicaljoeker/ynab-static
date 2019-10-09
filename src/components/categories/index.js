@@ -1,11 +1,11 @@
 import React from "react"
-import { getCategories } from "../../hooks/categories"
+import { GetCategories } from "../../hooks/categories"
 import SubCategories from '../subCategories';
 import { Label } from 'semantic-ui-react'
 
-function Categories() {
-  let category_groups = getCategories();
-  return <>
+function Categories(props) {
+  let category_groups = GetCategories();
+  return <div id={props.id}>
     {category_groups.map(group => (
     	<>
       <Label>
@@ -14,7 +14,7 @@ function Categories() {
       <SubCategories group={group.categories} />
       </>
     ))}
-    </>
+    </div>
 }
 
 export default Categories

@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby"
 
-export const getCategories = () => {
+export const GetCategories = () => {
 	const  {ynabBudget} = useStaticQuery(
 	  graphql`
 	    query Accounts {
