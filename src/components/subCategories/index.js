@@ -3,7 +3,7 @@ import Currency from '../currency';
 import { Table } from 'semantic-ui-react'
 import { Progress } from 'semantic-ui-react'
 function SubCategories({group}) {
-  let goals = group.reduce( (value, category) => {return value || category.goal_type === 'TBD'}, false);
+  let goals = group.reduce( (value, category) => {return value || validGoals(category.goal_type)}, false);
   return <Table celled padded>
   	<Table.Header>
 		<Table.Row>
@@ -22,7 +22,7 @@ function SubCategories({group}) {
       	 </Table.Cell>
       	 <Table.Cell><Currency cents={category.activity} />
       	 </Table.Cell>
-         {goals && <Table.Cell>{category.goal_type === 'TBD' && <Progress color='teal' percent={category.goal_percentage_complete} />}
+         {goals && <Table.Cell>{validGoals(category.goal_type) && <Progress color='teal' percent={category.goal_percentage_complete}><Currency cents={category.goal_target}/></Progress>}
          </Table.Cell>}
   	 	</Table.Row>
       ))}
@@ -31,3 +31,7 @@ function SubCategories({group}) {
 }
 
 export default SubCategories
+
+function validGoals(goal_type) {
+  return goal_type === 'TBD' || goal_type === 'NEED' || goal_type === 'MF';
+}
