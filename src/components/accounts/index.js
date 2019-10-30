@@ -5,7 +5,7 @@ import { Table } from 'semantic-ui-react'
 
 function Accounts(props) {
   let accounts = GetAccounts();
-  return <Table celled padded id={props.id}>
+  return <Table celled padded unstackable size='small' id={props.id}>
   	<Table.Header>
 		<Table.Row>
 	      <Table.HeaderCell singleLine>Account Name</Table.HeaderCell>

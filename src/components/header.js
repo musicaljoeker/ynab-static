@@ -9,6 +9,8 @@ const Header = ({ siteTitle }) => (
 >
   <Container>
     <Menu.Item><Link to="/app/budget">Budget</Link></Menu.Item>
+    <Menu.Item><Link to="/app/accounts">Accounts</Link></Menu.Item>
+    <Menu.Item><Link to="/app/categories">Categories</Link></Menu.Item>
     <Menu.Item position='right'>
       {isLoggedIn() ? (
         <a
