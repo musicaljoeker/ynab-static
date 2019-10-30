@@ -8,13 +8,14 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Header from "./header"
+import SEO from './seo';
 import 'semantic-ui-css/semantic.min.css'
 import "./layout.css"
 
 const Layout = ({ children }) => {
   return (
     <>
-
+      <SEO />
       <Header />
       <div
         style={{

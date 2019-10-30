@@ -5,7 +5,7 @@ import { Table } from 'semantic-ui-react'
 
 function Accounts(props) {
   let accounts = GetAccounts();
-  return <Table celled padded id={props.id}>
+  return <Table celled padded unstackable size='small' id={props.id}>
   	<Table.Header>
 		<Table.Row>
 	      <Table.HeaderCell singleLine>Account Name</Table.HeaderCell>
@@ -15,7 +15,7 @@ function Accounts(props) {
 
   <Table.Body>
     {accounts.map(account => (
-       <Table.Row>
+       <Table.Row key={account.id}>
         <Table.Cell>{account.name}
         </Table.Cell>
         <Table.Cell><Currency cents={account.balance} />
