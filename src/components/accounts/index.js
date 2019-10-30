@@ -3,6 +3,7 @@ import { GetAccounts } from "../../hooks/accounts"
 import Currency from '../currency';
 import { Table } from 'semantic-ui-react'
 
+<<<<<<< HEAD
 function Accounts(props) {
   let accounts = GetAccounts();
   return <Table celled padded id={props.id}>

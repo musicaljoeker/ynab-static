@@ -1,34 +1,32 @@
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-
+import {Menu,Container,Button} from 'semantic-ui-react'
+import {isLoggedIn, logout } from "../services/auth"
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
+  <Menu
+  size='large'
+>
+  <Container>
+    <Menu.Item><Link to="/app/budget">Budget</Link></Menu.Item>
+    <Menu.Item position='right'>
+      {isLoggedIn() ? (
+        <a
+          href="/"
+          onClick={event => {
+            event.preventDefault()
+            logout(() => navigate(`/app/login`))
           }}
         >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
+          Logout
+        </a>
+      ) : <Button as='a' >
+        Log in
+      </Button>}
+
+    </Menu.Item>
+  </Container>
+</Menu>
 )
 
 Header.propTypes = {
