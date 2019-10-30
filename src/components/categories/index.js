@@ -7,12 +7,12 @@ function Categories(props) {
   let category_groups = GetCategories();
   return <div id={props.id}>
     {category_groups.filter(group => filterGroups(group)).map(group => (
-    	<>
+    	<div key={group.id}>
       <Label>
       	{group.name}
       </Label>
       <SubCategories group={group.categories} />
-      </>
+      </div>
     ))}
     </div>
 }

@@ -15,7 +15,7 @@ function SubCategories({group}) {
   	</Table.Header>
   	<Table.Body>
       {group.map( category => (
-      	<Table.Row>
+      	<Table.Row key={category.id}>
       	 <Table.Cell>{category.name}
       	 </Table.Cell>
       	 <Table.Cell><Currency cents={category.balance} />

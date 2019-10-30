@@ -15,7 +15,7 @@ function Accounts(props) {
 
   <Table.Body>
     {accounts.map(account => (
-       <Table.Row>
+       <Table.Row key={account.id}>
         <Table.Cell>{account.name}
         </Table.Cell>
         <Table.Cell><Currency cents={account.balance} />
