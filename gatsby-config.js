@@ -3,7 +3,7 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: `McCall Budget`,
+    title: `Budget`,
     description: `Where is our money`,
     author: `@sloped`,
   },
@@ -23,7 +23,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `McCall Budget`,
+        name: `Budget`,
         short_name: `Budget`,
         start_url: `/`,
         background_color: `#000`,
