@@ -1,10 +1,9 @@
 import React from "react"
 import Layout from "../components/layout"
-import {navigate} from 'gatsby'
+import { Link } from "gatsby"
 const IndexPage = () => {
-    navigate('/app/budget');
   return <Layout>
-    <div>Login</div>
+    <Link to="/app/budget">Login to Continue</Link>
   </Layout>
 }
 

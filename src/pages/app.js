@@ -9,19 +9,27 @@ import Categories from '../components/categories';
 import { Auth0Provider } from "../services/react-auth0";
 
 const onRedirectCallback = appState => {
-  window.history.replaceState(
-    {},
-    document.title,
-    '/app/budget'
-  );
+    if(typeof window !== `undefined`) {
+      window.history.replaceState(
+        {},
+        document.title,
+        '/app/budget'
+      );
+    }
 };
+const getRedirectUri = () => {
+    if(typeof window !== `undefined`) {
+        return window.location.href;
+    }
+    return '/app/budget';
+}
 
 const App = () => {
 
   return <Auth0Provider
     domain={process.env.GATSBY_AUTH0_DOMAIN}
     client_id={process.env.GATSBY_AUTH0_CLIENT_id}
-    redirect_uri={window.location.href}
+    redirect_uri={getRedirectUri()}
     onRedirectCallback={onRedirectCallback}
     >
         <Layout>
