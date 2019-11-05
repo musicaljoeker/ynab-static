@@ -9,11 +9,13 @@ import Categories from '../components/categories';
 import { Auth0Provider } from "../services/react-auth0";
 
 const onRedirectCallback = appState => {
-  window.history.replaceState(
-    {},
-    document.title,
-    '/app/budget'
-  );
+    if(window) {
+      window.history.replaceState(
+        {},
+        document.title,
+        '/app/budget'
+      );
+    }
 };
 
 const App = () => {
