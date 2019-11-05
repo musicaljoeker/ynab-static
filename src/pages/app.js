@@ -23,7 +23,7 @@ const App = () => {
   return <Auth0Provider
     domain={process.env.GATSBY_AUTH0_DOMAIN}
     client_id={process.env.GATSBY_AUTH0_CLIENT_id}
-    redirect_uri={window.location.href}
+    redirect_uri={window !== undefined ? window.location.href : '/app/budget'}
     onRedirectCallback={onRedirectCallback}
     >
         <Layout>
