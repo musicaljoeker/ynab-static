@@ -1,11 +1,12 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import {Menu,Container,Button} from 'semantic-ui-react'
+import {Menu,Container} from 'semantic-ui-react'
 import { useAuth0 } from "../services/react-auth0";
+import LoginButton from './loginButton';
 
 const Header = ({ siteTitle }) => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { isAuthenticated, logout } = useAuth0();
   return <Menu
   size='large'
 >
@@ -21,12 +22,7 @@ const Header = ({ siteTitle }) => {
         >
           Logout
         </a>
-      ) : <Button as='a' onClick={() =>
-            loginWithRedirect({})
-          }>
-        Log in
-      </Button>}
-
+      ) : <LoginButton />}
     </Menu.Item>
   </Container>
 </Menu>
