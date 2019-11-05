@@ -25,7 +25,7 @@ module.exports = {
       options: {
         name: `Budget`,
         short_name: `Budget`,
-        start_url: `/`,
+        start_url: `/app/budget`,
         background_color: `#000`,
         theme_color: `#00b5ad`,
         display: `minimal-ui`,
