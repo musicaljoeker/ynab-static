@@ -1,10 +1,12 @@
-import { Link, navigate } from "gatsby"
+import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import {Menu,Container,Button} from 'semantic-ui-react'
-import {isLoggedIn, logout } from "../services/auth"
-const Header = ({ siteTitle }) => (
-  <Menu
+import { useAuth0 } from "../services/react-auth0";
+
+const Header = ({ siteTitle }) => {
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  return <Menu
   size='large'
 >
   <Container>
@@ -12,24 +14,23 @@ const Header = ({ siteTitle }) => (
     <Menu.Item><Link to="/app/accounts">Accounts</Link></Menu.Item>
     <Menu.Item><Link to="/app/categories">Categories</Link></Menu.Item>
     <Menu.Item position='right'>
-      {isLoggedIn() ? (
+      {isAuthenticated ? (
         <a
           href="/"
-          onClick={event => {
-            event.preventDefault()
-            logout(() => navigate(`/app/login`))
-          }}
+          onClick={() => logout()}
         >
           Logout
         </a>
-      ) : <Button as='a' >
+      ) : <Button as='a' onClick={() =>
+            loginWithRedirect({})
+          }>
         Log in
       </Button>}
 
     </Menu.Item>
   </Container>
 </Menu>
-)
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

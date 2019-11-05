@@ -1,10 +1,11 @@
 import React from "react"
-import Login from "../components/login"
 import Layout from "../components/layout"
-const IndexPage = () => (
-  <Layout>
-    <Login />
+import {navigate} from 'gatsby'
+const IndexPage = () => {
+    navigate('/app/budget');
+  return <Layout>
+    <div>Login</div>
   </Layout>
-)
+}
 
 export default IndexPage
