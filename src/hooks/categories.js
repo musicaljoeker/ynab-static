@@ -16,7 +16,6 @@ export const GetCategories = () => {
 	            id
 	            note
 	            goal_type
-	            goal_target_month
 	          }
 	          name
 	          id
